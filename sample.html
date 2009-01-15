@@ -1,0 +1,119 @@
+<html>
+<head>
+	<title>jQuery Captify Demo</title>
+	<link rel="stylesheet" type="text/css" href="sample.css" />
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="captify.tiny.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('img.captify').captify({});
+	});
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1><strong>jQuery Captify</strong> Plugin <span class="ver">v1.0.0</span></h1>
+		
+		<p>
+			<a href="http://plugins.jquery.com/project/captify">Captify</a> is a plugin for <a href="http://jquery.com">jQuery</a> written by <a href="http://masterfidgeter.com">Brian Reavis</a> to display simple, pretty
+			image captions that appear on rollover. It has been tested on Firefox, Chrome, Safari, and the <a href="http://www.howtocreate.co.uk/wrongWithIE/">wretched Internet Explorer</a>. Captify was inspired by 
+			<a href="http://plugins.jquery.com/project/imagecaptions">ImageCaptions</a>, another jQuery plugin for displaying captions like these. 			
+		</p>
+		<p>
+			The goal of Captify is to be easy to use, small/simple, and completely ready for use in production environments (unlike ImageCaptions at the moment).
+		</p>
+		
+		<h2>Samples:</h2>
+		<h3>Using the TITLE-attribute method:</h3>
+		<div class="images">
+			<a href="http://flickr.com/photos/caius/3164539080/" title="Sitting in Garden by Caius Durling, on Flickr">
+				<img src="http://farm2.static.flickr.com/1139/3164539080_6ee2a9649c_m.jpg" title="Sitting in Garden" class="captify" width="200" />
+			</a>
+			<a href="http://www.flickr.com/photos/caius/3178623563/" title="Polarised Roundabout by Caius Durling, on Flickr">
+				<img src="http://farm4.static.flickr.com/3479/3178623563_7e0c3072dc_m.jpg" title="Polarised Roundabout" class="captify" width="200" />
+			</a>
+			<a href="http://flickr.com/photos/caius/3184805182/" title="Sign by Caius Durling, on Flickr">
+				<img src="http://farm4.static.flickr.com/3297/3184805182_eaf5e0fdbf_m.jpg" title="Sign" class="captify" width="200" />
+			</a>
+			<a href="http://flickr.com/photos/caius/549511487/" title="Gateway by Caius Durling, on Flickr">
+				<img src="http://farm2.static.flickr.com/1079/549511487_5269772bcf_m.jpg" title="Gateway" class="captify" width="200" />
+			</a>
+			<br class="c" />
+		</div>
+		<code>&lt;img src="theimage.jpg" <strong>class="captify" title="Caption Text"</strong> /&gt;</code>
+		
+		<h3>Using the ALT-tag method:</h3>
+		<div class="images">
+			<a href="http://www.flickr.com/photos/bcreavis/3088869324/" title="Cider by Brian Reavis, on Flickr"><img src="http://farm4.static.flickr.com/3001/3088869324_eb1288e181_m.jpg" class="captify" width="240" height="135" alt="My Awesome Dog, Cider" /></a>
+			<a href="http://www.flickr.com/photos/bcreavis/3073534188/" title="Red Pandas at the Smithsonian Zoo by Brian Reavis, on Flickr"><img src="http://farm4.static.flickr.com/3181/3073534188_15ba25d211_m.jpg" class="captify" width="240" height="120" alt="Red Pandas" /></a><br class="c" />
+			<a href="http://www.flickr.com/photos/bcreavis/3049439564/" title="Mount Moran by Brian Reavis, on Flickr"><img src="http://farm4.static.flickr.com/3209/3049439564_855d8d16c9_m.jpg" class="captify" width="240" height="160" alt="Mount Moran" /></a>
+			<a href="http://www.flickr.com/photos/bcreavis/3049439348/" title="Grand Tetons by Brian Reavis, on Flickr"><img src="http://farm4.static.flickr.com/3016/3049439348_77912bbb7e_m.jpg" class="captify" width="240" height="160" alt="Grand Tetons" /></a>
+			<br class="c" />
+		</div>
+		<code>&lt;img src="theimage.jpg" <strong>class="captify" alt="Caption Text"</strong> /&gt;</code>
+	
+		<h3>DIV-linked-by-REL-attribute Method:</h3>
+		<div class="images">
+			<a href="http://www.flickr.com/photos/bcreavis/3048598667/" title="Fall Aspen Grove by Brian Reavis, on Flickr"><img src="http://farm4.static.flickr.com/3292/3048598667_b54a723cfb.jpg" class="captify" rel="caption1" width="500" height="333" alt="" /></a>
+			<div id="caption1"><a href="http://flickr.com"><span style="color: #00a2ff">Flick</span><span style="color: #ff0084">r</span></a> <span style="color: #454545">//</span> Fall Aspen Grove</div>
+		</div>
+		
+		<br class="c" />
+		<code style="line-height: 225%">&lt;img src="theimage.jpg" <strong>class="captify" rel="caption1"</strong> /&gt;<br />
+		<strong>&lt;div id="caption1"&gt; Flickr // Fall Aspen Grove &lt;/div&gt;</strong></code>
+	
+	
+		<h2>How do I use it?</h2>
+		<p>First off, if you haven't downloaded it already, <a href="http://masterfidgeter.com/projects/captify/captify.zip">download Captify here</a>.</p>
+		
+<pre><code>$(document).ready(function(){
+	$('img.captify').captify({
+		<span class="comment">// all of these options are... optional</span>
+		<span class="comment">// ---</span>
+		<span class="comment">// speed of the mouseover effect</span>
+		speedOver: 150,
+		<span class="comment">// speed of the mouseout effect</span>
+		speedOut: 200,
+		<span class="comment">// how long to delay the hiding of the caption after mouseout (ms)</span>
+		hideDelay: 100,
+		<span class="comment">// 'fade' or 'slide'</span>
+		animation: 'fade',	  	
+		<span class="comment">// text/html to be placed at the beginning of every caption</span>
+		prefix: '',	
+		<span class="comment">// the name of the CSS class to apply to the caption box</span>
+		className: 'caption'
+	});
+});</code></pre>
+
+		<p>This javascript above should be wrapped in a <span style="font-family: monospace">&lt;script&gt;</span> tag and then be placed in the <span style="font-family: monospace">&lt;head&gt;</span>
+		of your document, after you've 
+		included <strong>jquery.js</strong> and <strong>captify.tiny.js</strong>.</p>
+		
+		<p><span class="note">Note:</span> Also, you need to copy-and-paste the necessary items out of the <a href="sample.css">sample stylesheet</a> into
+		your own website's stylesheet. When you open it up, you'll see what needs to be copied right away.</p>
+		
+		<p>One side-effect of the captions is that the captified images become wrapped in divs that float left. If you have text clinging to their right side,
+		clear the float by adding this line right after the image:</p>
+		<code style="line-height: 225%">&lt;br class="c" /&gt;</code>
+		
+		<p>If you don't want to take that route, just take out this block from the stylesheet, and that'll 
+		do the trick too :)</p>
+		
+<pre><code>.caption-wrapper {
+	float: left;
+}</code></pre>
+	
+
+		<h2>What do you think?</h2>
+		<p>If you need help or just want to make a comment, wander to the <a href="http://masterfidgeter.com/2008/12/jquery-captify/">blog post</a>.</p>
+		
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+		<input type="hidden" name="cmd" value="_s-xclick">
+		<input type="hidden" name="hosted_button_id" value="1859807">
+		<input type="image" src="http://masterfidgeter.com/images/donate-chocolate.jpg" border="0" name="submit" alt="">
+		<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+	</div>
+</body>
+</html>
